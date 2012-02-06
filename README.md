@@ -17,7 +17,7 @@ will be preserved.
 
 A fresh, empty todo list.
 
-![Three items in the list](/j2labs/todos/raw/master/media/screenshots/empty_list.png)
+![Three items in the list](/j2labs/todos/raw/master/media/screenshots/three_items.png)
 
 Three items in the list, one is accomplished.
 
