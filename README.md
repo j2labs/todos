@@ -13,18 +13,18 @@ will be preserved.
 
 ## Screenshots
 
-![Empty todo list](/j2labs/todos/raw/master/media/screentshots/empty_list.png)
+![Empty todo list](/j2labs/todos/raw/master/media/screenshots/empty_list.png)
 
 A fresh, empty todo list.
 
-![Three items in the list](/j2labs/todos/raw/master/media/screentshots/empty_list.png)
+![Three items in the list](/j2labs/todos/raw/master/media/screenshots/empty_list.png)
 
 Three items in the list, one is accomplished.
 
-![Empty todo list](/j2labs/todos/raw/master/media/screentshots/editing_a_todo.png)
+![Empty todo list](/j2labs/todos/raw/master/media/screenshots/editing_a_todo.png)
 
 Editing the name of one of the list items
 
-![Empty todo list](/j2labs/todos/raw/master/media/screentshots/json_api.png)
+![Empty todo list](/j2labs/todos/raw/master/media/screenshots/json_api.png)
 
 The actual output from the AutoAPI.
