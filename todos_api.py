@@ -20,11 +20,8 @@ class Todo(Document):
     done = BooleanField(default=False)
     order = IntField()
     text = StringField()
-
-    def __init__(self, *a, **kw):
-        super(Todo, self).__init__(*a, **kw)
-        if not self.id:
-            self.id = uuid.uuid4()  # Set a new id by default
+    class Meta:
+        id_options = {'auto_fill': True}
 
 
 ### API Implementation
