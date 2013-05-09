@@ -5,23 +5,29 @@ from brubeck.request_handling import Brubeck, WebMessageHandler
 from brubeck.autoapi import AutoAPIBase
 from brubeck.queryset import DictQueryset
 from brubeck.templating import Jinja2Rendering, load_jinja2_env
+from brubeck.connections import Mongrel2Connection
 
 
-from dictshield.document import Document
-from dictshield.fields import (StringField,
-                               IntField,
-                               BooleanField)
+from schematics.models import Model
+from schematics.types import (UUIDType,
+                              StringType,
+                              IntType,
+                              BooleanType)
+from schematics.serialize import wholelist
 
 import uuid
 
 
 ### Todo Model
-class Todo(Document):
-    done = BooleanField(default=False)
-    order = IntField()
-    text = StringField()
-    class Meta:
-        id_options = {'auto_fill': True}
+class Todo(Model):
+    id = UUIDType(auto_fill=True)
+    done = BooleanType(default=False)
+    order = IntType()
+    text = StringType()
+    class Options:
+        roles = {
+            'owner': wholelist(),
+        }
 
 
 ### API Implementation
@@ -41,7 +47,8 @@ class TodosHandler(Jinja2Rendering):
 
 ### Instantiate app instance
 app = Brubeck(
-    mongrel2_pair=('ipc://brubeck_incoming', 'ipc://brubeck_outgoing'),
+    msg_conn=Mongrel2Connection('ipc://brubeck_incoming',
+                                'ipc://brubeck_outgoing'),
     handler_tuples=((r'^/$', TodosHandler),),
     template_loader=load_jinja2_env('./templates')
 )
